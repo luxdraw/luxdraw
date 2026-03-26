@@ -1,0 +1,1381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <title>LuxDraw - Luxury at Low Cost</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        color: #333;
+        background: #f8f8f8;
+      }
+
+      /* Header */
+      header {
+        background: white;
+        position: sticky;
+        top: 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+      }
+
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #000;
+        letter-spacing: -0.5px;
+      }
+
+      nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #666;
+        font-size: 0.95rem;
+        transition: color 0.3s;
+        white-space: nowrap;
+      }
+
+      nav a:hover {
+        color: #000;
+      }
+
+      .signup-btn {
+        background: #000;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s;
+        cursor: pointer;
+        border: none;
+      }
+
+      .signup-btn:hover {
+        background: #333;
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: #000;
+        border-radius: 2px;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        color: white;
+        padding: 3rem 2rem;
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.5rem;
+        font-family: bodoni-moda, serif;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .hero-text .tagline {
+        font-size: 1rem;
+        color: #ddd;
+        margin-bottom: 1.5rem;
+      }
+
+      .urgency-badge {
+        background: rgba(255, 107, 107, 0.2);
+        border: 1px solid #ff6b6b;
+        color: #ff6b6b;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .cta-primary {
+        background: #ff6b6b;
+        color: white;
+        padding: 1rem 2.5rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+        display: inline-block;
+      }
+
+      .cta-primary:hover {
+        background: #ff5252;
+        transform: translateY(-2px);
+      }
+
+      .cta-primary:active {
+        transform: translateY(0);
+      }
+
+      .hero-image {
+        text-align: center;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
+        border-radius: 20px;
+      }
+
+      /* Trust Section */
+      .trust-bar {
+        background: white;
+        padding: 2rem;
+        text-align: center;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+      }
+
+      .trust-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+        color: #666;
+        gap: 1rem;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .trust-check {
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      /* How it works */
+      .how-it-works {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+        text-align: center;
+      }
+
+      .how-it-works h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .step {
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .step-number {
+        font-size: 2.5rem;
+        color: #ff6b6b;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .step h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Products */
+      .products {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+      }
+
+      .products h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-image {
+        background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-image img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #ff6b6b;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .product-info {
+        padding: 1.5rem;
+      }
+
+      .product-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-value {
+        color: #999;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .product-price {
+        font-size: 1.8rem;
+        color: #ff6b6b;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .price-label {
+        color: #999;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .progress-bar {
+        background: #eee;
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+
+      .progress-fill {
+        background: #ff6b6b;
+        height: 100%;
+        border-radius: 4px;
+        transition: width 0.3s;
+      }
+
+      .progress-text {
+        color: #999;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .product-cta {
+        width: 100%;
+        padding: 0.75rem;
+        background: #000;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .product-cta:hover {
+        background: #333;
+      }
+
+      /* Checkout Modal */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        animation: fadeIn 0.3s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 5% auto;
+        padding: 2rem;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 500px;
+        max-height: 90vh;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        animation: slideDown 0.3s;
+        overflow-y: auto;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .close {
+        color: #999;
+        float: right;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .close:hover {
+        color: #000;
+      }
+
+      .modal h2 {
+        margin-bottom: 1.5rem;
+        color: #333;
+        clear: both;
+      }
+
+      .email-input-group {
+        margin-bottom: 2rem;
+      }
+
+      .email-input-group input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .email-input-group input:focus {
+        outline: none;
+        border-color: #ff6b6b;
+      }
+
+      .payment-methods {
+        margin-bottom: 1.5rem;
+      }
+
+      .payment-title {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .payment-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+      }
+
+      .payment-option {
+        border: 2px solid #ddd;
+        padding: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s;
+        background: white;
+      }
+
+      .payment-option:hover {
+        border-color: #ff6b6b;
+        box-shadow: 0 2px 8px rgba(255, 107, 107, 0.2);
+      }
+
+      .payment-option img {
+        max-width: 80px;
+        max-height: 40px;
+        margin-bottom: 0.5rem;
+      }
+
+      .payment-option.selected {
+        border-color: #ff6b6b;
+        background: rgba(255, 107, 107, 0.1);
+      }
+
+      .payment-label {
+        font-size: 0.85rem;
+        color: #666;
+      }
+
+      .checkout-btn {
+        width: 100%;
+        padding: 1rem;
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .checkout-btn:hover {
+        background: #ff5252;
+      }
+
+      .checkout-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .modal-step {
+        display: none;
+      }
+
+      .modal-step.active {
+        display: block;
+      }
+
+      .email-success-section {
+        text-align: center;
+      }
+
+      .success-message {
+        background: #e8f5e9;
+        border: 1px solid #4caf50;
+        color: #2e7d32;
+        padding: 1.5rem;
+        border-radius: 6px;
+        margin-top: 2rem;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .success-check {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .email-section-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+
+      .email-section-subtitle {
+        color: #666;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .modal-step {
+        display: none;
+      }
+
+      .modal-step.active {
+        display: block;
+      }
+
+      .email-success-section {
+        text-align: center;
+      }
+
+      .success-message {
+        background: #e8f5e9;
+        border: 1px solid #4caf50;
+        color: #2e7d32;
+        padding: 1.5rem;
+        border-radius: 6px;
+        margin-top: 2rem;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .success-check {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .email-section-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+
+      .email-section-subtitle {
+        color: #666;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      /* Winners Section */
+      .winners-image {
+        background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        position: relative;
+      }
+
+      .winners-image img {
+        max-width: 80px;
+        height: auto;
+      }
+
+      .winner-name {
+        color: white;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      .error-message {
+        color: #d32f2f;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+        text-align: left;
+        display: none;
+      }
+
+      .error-message.active {
+        display: block;
+      }
+
+      /* Footer */
+      footer {
+        background: #1a1a1a;
+        color: #999;
+        padding: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      footer p {
+        line-height: 1.8;
+      }
+
+      footer a {
+        color: #999;
+        text-decoration: none;
+        margin: 0 0.5rem;
+        transition: color 0.3s;
+        display: inline-block;
+      }
+
+      footer a:hover {
+        color: #fff;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        nav {
+          display: none;
+          gap: 0;
+          width: 100%;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          padding: 1rem 2rem;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          z-index: 99;
+        }
+
+        nav.active {
+          display: flex;
+        }
+
+        nav a {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid #eee;
+        }
+
+        nav a:last-child {
+          border-bottom: none;
+        }
+
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 2rem 0;
+        }
+
+        .hero-text h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero-image {
+          order: -1;
+        }
+
+        .trust-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .modal-content {
+          margin: 20% auto;
+          width: 95%;
+          padding: 1.5rem;
+          max-height: 80vh;
+        }
+
+        .payment-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        footer {
+          padding: 1.5rem 1rem;
+        }
+
+        footer a {
+          margin: 0 0.5rem;
+          display: inline-block;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-content {
+          padding: 1rem;
+        }
+
+        .logo {
+          font-size: 1.4rem;
+        }
+
+        .hero-text h1 {
+          font-size: 1.5rem;
+        }
+
+        .how-it-works h2,
+        .products h2 {
+          font-size: 1.5rem;
+        }
+
+        .payment-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .modal-content {
+          margin: 10% auto;
+          width: 94%;
+          padding: 1rem;
+          max-height: 85vh;
+          overflow-y: auto;
+        }
+
+        .close {
+          font-size: 1.5rem;
+        }
+
+        .payment-option img {
+          max-width: 60px;
+          max-height: 30px;
+        }
+
+        .payment-option {
+          padding: 0.75rem;
+        }
+
+        .email-input-group input {
+          font-size: 16px;
+        }
+
+        footer {
+          padding: 1.5rem 1rem;
+          font-size: 0.85rem;
+        }
+
+        footer a {
+          margin: 0.5rem 0;
+          display: block;
+          padding: 0.5rem 0;
+        }
+
+        footer p {
+          margin-bottom: 1rem;
+        }
+
+        footer p:first-child {
+          font-size: 0.8rem;
+        }
+
+        footer p:last-child {
+          font-size: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FBW6V615MG"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FBW6V615MG");
+
+      function trackClick(eventName, label) {
+        gtag("event", eventName, {
+          event_category: "engagement",
+          event_label: label,
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        gtag("event", "page_load", {
+          event_category: "visitor",
+        });
+      });
+    </script>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <div class="logo">LuxDraw</div>
+        <div class="menu-toggle" onclick="toggleNav()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav id="nav-menu">
+          <a href="#products">Active Draws</a>
+          <a href="#winners">Winners</a>
+          <a href="#how">How It Works</a>
+          <button
+            class="signup-btn"
+            onclick="
+              trackClick('click_signup_header', 'header');
+              openSignUp();
+            "
+          >
+            Sign Up
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="tagline">Luxury is no longer a matter of budget.</p>
+          <h1>Win this MacBook Pro for just <strong>$10</strong></h1>
+          <div class="urgency-badge">⭐ Only 25 tickets left out of 100</div>
+          <button
+            class="cta-primary"
+            onclick="
+              trackClick('click_cta_hero', 'hero');
+              openCheckout();
+            "
+          >
+            BUY A TICKET
+          </button>
+        </div>
+        <div class="hero-image">
+          <img src="images/macbookpro14.png" alt="MacBook Pro" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+      <div class="trust-content">
+        <div class="trust-item">
+          <span class="trust-check">✓</span>
+          <span>Over 1,200 winners</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span>
+          <span>Secure payments</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span>
+          <span>Transparent draws</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <section id="how" class="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Choose</h3>
+          <p>Select the prize of your dreams from our offers</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Play</h3>
+          <p>Buy tickets (more tickets = better chances)</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Win</h3>
+          <p>Once all tickets are sold, the draw is held live</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products">
+      <h2>Active Draws</h2>
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">Popular</span>
+            <img src="images/macbookpro14.png" alt="MacBook Pro 14" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">MacBook Pro 14"</div>
+            <div class="product-value">Real Value: $1,899</div>
+            <div class="product-price">$20</div>
+            <div class="price-label">per ticket</div>
+            <div class="progress-text">75 / 100 tickets sold</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%"></div>
+            </div>
+            <button
+              class="product-cta"
+              onclick="
+                trackClick('click_ticket', 'MacBook Pro');
+                openCheckout();
+              "
+            >
+              Buy Ticket
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <span class="product-badge">Almost Gone</span>
+            <img src="images/iphone15pro.png" alt="iPhone 15 Pro" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">iPhone 15 Pro</div>
+            <div class="product-value">Real Value: $1,447</div>
+            <div class="product-price">$15</div>
+            <div class="price-label">per ticket</div>
+            <div class="progress-text">92 / 100 tickets sold</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 92%"></div>
+            </div>
+            <button
+              class="product-cta"
+              onclick="
+                trackClick('click_ticket', 'iPhone 15 Pro');
+                openCheckout();
+              "
+            >
+              Buy Ticket
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/playstation5.png" alt="PlayStation 5" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">PlayStation 5</div>
+            <div class="product-value">Real Value: $579</div>
+            <div class="product-price">$8</div>
+            <div class="price-label">per ticket</div>
+            <div class="progress-text">45 / 100 tickets sold</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 45%"></div>
+            </div>
+            <button
+              class="product-cta"
+              onclick="
+                trackClick('click_ticket', 'PlayStation 5');
+                openCheckout();
+              "
+            >
+              Buy Ticket
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/applewatchultra.png" alt="Apple Watch Ultra" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Apple Watch Ultra</div>
+            <div class="product-value">Real Value: $899</div>
+            <div class="product-price">$10</div>
+            <div class="price-label">per ticket</div>
+            <div class="progress-text">60 / 100 tickets sold</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 60%"></div>
+            </div>
+            <button
+              class="product-cta"
+              onclick="
+                trackClick('click_ticket', 'Apple Watch Ultra');
+                openCheckout();
+              "
+            >
+              Buy Ticket
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/airpodspromax.png" alt="AirPods Pro Max" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">AirPods Pro Max</div>
+            <div class="product-value">Real Value: $549</div>
+            <div class="product-price">$6</div>
+            <div class="price-label">per ticket</div>
+            <div class="progress-text">38 / 100 tickets sold</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 38%"></div>
+            </div>
+            <button
+              class="product-cta"
+              onclick="
+                trackClick('click_ticket', 'AirPods Pro Max');
+                openCheckout();
+              "
+            >
+              Buy Ticket
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img src="images/cannoneosr6.png" alt="Canon EOS R6" />
+          </div>
+          <div class="product-info">
+            <div class="product-name">Canon EOS R6</div>
+            <div class="product-value">Real Value: $2,499</div>
+            <div class="product-price">$25</div>
+            <div class="price-label">per ticket</div>
+            <div class="progress-text">28 / 100 tickets sold</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 28%"></div>
+            </div>
+            <button
+              class="product-cta"
+              onclick="
+                trackClick('click_ticket', 'Canon EOS R6');
+                openCheckout();
+              "
+            >
+              Buy Ticket
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeCheckout()">&times;</span>
+
+        <!-- Step 1: Payment Selection -->
+        <div id="paymentStep" class="modal-step active">
+          <h2>Complete Your Purchase</h2>
+          <div class="payment-methods">
+            <div class="payment-title">Select Payment Method</div>
+            <div class="payment-grid">
+              <div class="payment-option" onclick="selectPayment(this, 'visa')">
+                <img src="images/visa.svg" alt="Visa" />
+                <div class="payment-label">Visa</div>
+              </div>
+              <div
+                class="payment-option"
+                onclick="selectPayment(this, 'mastercard')"
+              >
+                <img src="images/mastercard.svg" alt="Mastercard" />
+                <div class="payment-label">Mastercard</div>
+              </div>
+              <div
+                class="payment-option"
+                onclick="selectPayment(this, 'paypal')"
+              >
+                <img src="images/paypal.svg" alt="PayPal" />
+                <div class="payment-label">PayPal</div>
+              </div>
+              <div
+                class="payment-option"
+                onclick="selectPayment(this, 'apple-pay')"
+              >
+                <img src="images/apple-pay.svg" alt="Apple Pay" />
+                <div class="payment-label">Apple Pay</div>
+              </div>
+              <div
+                class="payment-option"
+                onclick="selectPayment(this, 'google-pay')"
+              >
+                <img src="images/google-pay.svg" alt="Google Pay" />
+                <div class="payment-label">Google Pay</div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="checkout-btn"
+            onclick="goToEmailStep()"
+            id="checkoutBtn"
+            disabled
+          >
+            Complete Purchase
+          </button>
+        </div>
+
+        <!-- Step 2: Email & Success -->
+        <div id="emailStep" class="modal-step">
+          <div class="email-success-section">
+            <div class="email-section-title">Join Our Beta Program</div>
+            <p class="email-section-subtitle">
+              Enter your email to join and get exclusive access
+            </p>
+            <div class="email-input-group">
+              <input
+                type="email"
+                id="userEmail"
+                placeholder="your@email.com"
+                required
+              />
+              <div id="errorMessage" class="error-message"></div>
+            </div>
+            <button class="checkout-btn" onclick="submitEmail()">
+              Join Now
+            </button>
+          </div>
+          <div
+            id="successMessage"
+            class="success-message"
+            style="display: none"
+          >
+            <div class="success-check">✓</div>
+            <strong>Welcome!</strong>
+            <p style="margin-top: 0.5rem; font-size: 0.95rem">
+              You will be contacted by email with more information and exclusive
+              beta access.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Winners Section -->
+    <section id="winners" class="products">
+      <h2>Recent Winners</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="winners-image">
+            <img src="images/xiaomi17ultra.png" alt="Trophy" />
+            <div class="winner-name">Antonio V. - Milan</div>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Xiaomi 17 Ultra</div>
+            <div class="product-value">Paid: $2 | Value: $1,499</div>
+            <div style="color: #4caf50; font-weight: 600">
+              ✓ Delivered 15/03/2026
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="winners-image">
+            <img src="images/ps4pro.png" alt="Trophy" />
+            <div class="winner-name">Sarah P. - Paris</div>
+          </div>
+          <div class="product-info">
+            <div class="product-name">PS4 Pro</div>
+            <div class="product-value">Paid: $5 | Value: $399</div>
+            <div style="color: #4caf50; font-weight: 600">
+              ✓ Delivered 10/02/2026
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="winners-image">
+            <img src="images/s26ultra.png" alt="Trophy" />
+            <div class="winner-name">John T. - Chicago</div>
+          </div>
+          <div class="product-info">
+            <div class="product-name">Samsung Galaxy S26 Ultra</div>
+            <div class="product-value">Paid: $20 | Value: $1,499</div>
+            <div style="color: #4caf50; font-weight: 600">
+              ✓ Delivered 08/01/2026
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        &copy; 2026 LuxDraw - Luxury at Low Cost |
+        <a href="terms-of-service.html">Terms of Service |</a>
+        <a href="privacy-policy.html">Privacy Policy |</a>
+        <a href="contact.html">Contact |</a> <a href="faq.html">FAQ</a>
+      </p>
+      <p style="margin-top: 1rem; color: #666">
+        Draws are conducted transparently and verified.
+      </p>
+    </footer>
+
+    <script>
+      let selectedPayment = null;
+      let currentFlow = null; // 'checkout' or 'signup'
+
+      function toggleNav() {
+        const nav = document.getElementById("nav-menu");
+        nav.classList.toggle("active");
+      }
+
+      function openCheckout() {
+        trackClick("open_checkout", "modal");
+        currentFlow = "checkout";
+        document.getElementById("checkoutModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+        showPaymentStep();
+      }
+
+      function openSignUp() {
+        trackClick("open_signup", "modal");
+        currentFlow = "signup";
+        document.getElementById("checkoutModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+        showEmailStep();
+      }
+
+      function closeCheckout() {
+        document.getElementById("checkoutModal").style.display = "none";
+        document.body.style.overflow = "auto";
+        selectedPayment = null;
+        document
+          .querySelectorAll(".payment-option")
+          .forEach((el) => el.classList.remove("selected"));
+        document.getElementById("checkoutBtn").disabled = true;
+        document.getElementById("userEmail").value = "";
+        document.getElementById("successMessage").style.display = "none";
+        document.querySelector(".email-success-section").style.display =
+          "block";
+        document.getElementById("errorMessage").classList.remove("active");
+        document.getElementById("errorMessage").textContent = "";
+      }
+
+      function selectPayment(element, method) {
+        document
+          .querySelectorAll(".payment-option")
+          .forEach((el) => el.classList.remove("selected"));
+        element.classList.add("selected");
+        selectedPayment = method;
+        document.getElementById("checkoutBtn").disabled = false;
+        trackClick("select_payment", method);
+      }
+
+      function showPaymentStep() {
+        document.getElementById("paymentStep").classList.add("active");
+        document.getElementById("emailStep").classList.remove("active");
+      }
+
+      function showEmailStep() {
+        document.getElementById("paymentStep").classList.remove("active");
+        document.getElementById("emailStep").classList.add("active");
+        document.getElementById("successMessage").style.display = "none";
+        document.querySelector(".email-success-section").style.display =
+          "block";
+        document.getElementById("userEmail").value = "";
+        document.getElementById("errorMessage").classList.remove("active");
+        document.getElementById("errorMessage").textContent = "";
+      }
+
+      function goToEmailStep() {
+        if (!selectedPayment) {
+          alert("Please select a payment method");
+          return;
+        }
+        showEmailStep();
+      }
+
+      function submitEmail() {
+        const email = document.getElementById("userEmail").value;
+        const errorMessage = document.getElementById("errorMessage");
+        const emailSuccessSection = document.querySelector(
+          ".email-success-section",
+        );
+        const successMessage = document.getElementById("successMessage");
+
+        if (!email) {
+          errorMessage.textContent = "Please enter a valid email";
+          errorMessage.classList.add("active");
+          return;
+        }
+
+        // Clear error
+        errorMessage.classList.remove("active");
+        errorMessage.textContent = "";
+
+        // Track event
+        if (currentFlow === "checkout") {
+          trackClick("complete_purchase", selectedPayment + " | " + email);
+        } else {
+          trackClick("email_signup", email);
+        }
+
+        // Hide email section and show only success message
+        emailSuccessSection.style.display = "none";
+        successMessage.style.display = "block";
+      }
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("checkoutModal");
+        if (event.target == modal) {
+          closeCheckout();
+        }
+      };
+
+      document.addEventListener("scroll", function () {
+        const scrollPercent =
+          (window.scrollY /
+            (document.documentElement.scrollHeight - window.innerHeight)) *
+          100;
+        if (scrollPercent > 25 && !window.scrollTracked25) {
+          gtag("event", "scroll_25_percent", { event_category: "engagement" });
+          window.scrollTracked25 = true;
+        }
+        if (scrollPercent > 50 && !window.scrollTracked50) {
+          gtag("event", "scroll_50_percent", { event_category: "engagement" });
+          window.scrollTracked50 = true;
+        }
+        if (scrollPercent > 75 && !window.scrollTracked75) {
+          gtag("event", "scroll_75_percent", { event_category: "engagement" });
+          window.scrollTracked75 = true;
+        }
+      });
+    </script>
+  </body>
+</html>

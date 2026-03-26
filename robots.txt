@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow crawlers from accessing sensitive paths
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://luxdraw.github.io/sitemap.xml
+
+# Crawl delay to be respectful
+Crawl-delay: 1

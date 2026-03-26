@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - LuxDraw</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        color: #333;
+        background: #f8f8f8;
+        line-height: 1.6;
+      }
+
+      header {
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem;
+      }
+
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #000;
+      }
+
+      .back-link {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .back-link:hover {
+        color: #000;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      h1 {
+        margin-bottom: 1.5rem;
+        color: #000;
+        font-size: 2.2rem;
+        text-align: center;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .faq-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: all 0.3s;
+        border-left: 4px solid transparent;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-left-color: #ff6b6b;
+      }
+
+      .faq-question {
+        font-weight: 700;
+        color: #000;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .faq-toggle {
+        color: #ff6b6b;
+        font-size: 1.2rem;
+        transition: transform 0.3s;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        color: #555;
+        display: none;
+        line-height: 1.6;
+      }
+
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+
+      .faq-category {
+        margin-bottom: 3rem;
+      }
+
+      .faq-category h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        border-bottom: 2px solid #ff6b6b;
+        padding-bottom: 0.5rem;
+      }
+
+      .search-box {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .search-box input:focus {
+        outline: none;
+        border-color: #ff6b6b;
+      }
+
+      footer {
+        background: #1a1a1a;
+        color: #999;
+        padding: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 3rem;
+      }
+
+      footer a {
+        color: #999;
+        text-decoration: none;
+        margin: 0 1rem;
+        transition: color 0.3s;
+      }
+
+      footer a:hover {
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 1.6rem;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="logo">LuxDraw</a>
+        <a href="index.html" class="back-link">← Back to Home</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search FAQs..."
+          onkeyup="filterFAQ()"
+        />
+      </div>
+
+      <div class="faq-category">
+        <h2>Getting Started</h2>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            How does LuxDraw work?
+          </div>
+          <div class="faq-answer">
+            LuxDraw is a platform where you can buy tickets for a chance to win
+            high-value items at a fraction of their retail price. Simply select
+            a product, choose how many tickets you want, and wait for the draw.
+            When all tickets for a product are sold, we conduct a live,
+            transparent draw to determine the winner.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            How much are tickets?
+          </div>
+          <div class="faq-answer">
+            Ticket prices vary depending on the product and its value. For
+            example, you might find tickets for $2 up to $15, depending on
+            what's being raffled. The price is clearly displayed on each product
+            card.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            Can I buy multiple tickets?
+          </div>
+          <div class="faq-answer">
+            Yes! You can purchase as many tickets as you want for each draw.
+            More tickets increase your chances of winning. Each ticket is a
+            separate entry into the draw.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h2>Draws & Winning</h2>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            When do draws happen?
+          </div>
+          <div class="faq-answer">
+            Draws happen automatically once all tickets for a product are sold.
+            You'll receive an email notification when a draw you participated in
+            is about to happen, and another email confirming the results.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            How is the winner selected?
+          </div>
+          <div class="faq-answer">
+            Winners are selected using a certified random algorithm that ensures
+            complete fairness. The draw process is transparent and independently
+            verified. Results are published immediately after the draw.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            How do I know if I've won?
+          </div>
+          <div class="faq-answer">
+            We'll send you an email immediately after the draw with the results.
+            If you're the winner, you'll receive detailed information about
+            claiming your prize and shipping details.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            What happens if I don't win?
+          </div>
+          <div class="faq-answer">
+            Your tickets are specific to each draw. You can enter other active
+            draws with new tickets, or wait for future draws of products you're
+            interested in.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h2>Payment & Safety</h2>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            Is my payment information safe?
+          </div>
+          <div class="faq-answer">
+            Yes. We use industry-standard encryption and work with trusted
+            payment processors (Visa, Mastercard, PayPal, Apple Pay, Google
+            Pay). We never store your complete payment details on our servers.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            What payment methods do you accept?
+          </div>
+          <div class="faq-answer">
+            We accept Visa, Mastercard, PayPal, Apple Pay, and Google Pay. You
+            can select your preferred payment method during checkout.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            Can I get a refund?
+          </div>
+          <div class="faq-answer">
+            Ticket purchases are generally non-refundable as they represent your
+            entry into a draw. However, if you encounter any issues, please
+            contact our support team at support@luxdraw.github.io.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h2>Legal & Compliance</h2>
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            Is LuxDraw legal?
+          </div>
+          <div class="faq-answer">
+            Yes. LuxDraw operates as a legitimate raffle/draw service with
+            transparent, certified practices. All draws are conducted fairly and
+            in compliance with applicable regulations.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            What are the age requirements?
+          </div>
+          <div class="faq-answer">
+            You must be at least 18 years old to participate in LuxDraw draws.
+            We verify age during the registration and payment process.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span class="faq-toggle">▼</span>
+            What is your privacy policy?
+          </div>
+          <div class="faq-answer">
+            We take your privacy seriously. Read our complete
+            <a
+              href="privacy-policy.html"
+              style="color: #ff6b6b; text-decoration: none"
+              >Privacy Policy</a
+            >
+            to understand how we collect and use your information.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <h2>Still Have Questions?</h2>
+        <div
+          style="
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+          "
+        >
+          <p>
+            Can't find what you're looking for?
+            <a
+              href="contact.html"
+              style="color: #ff6b6b; font-weight: 600; text-decoration: none"
+              >Contact our support team →</a
+            >
+          </p>
+          <p style="margin-top: 1rem; color: #666; font-size: 0.9rem">
+            We typically respond within 24 hours
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2026 LuxDraw - Luxury at Low Cost |
+        <a href="terms-of-service.html">Terms of Service</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a> | <a href="faq.html">FAQ</a>
+      </p>
+      <p style="margin-top: 1rem; color: #666">
+        Draws are conducted transparently and verified.
+      </p>
+    </footer>
+
+    <script>
+      function toggleFAQ(element) {
+        element.classList.toggle("active");
+      }
+
+      function filterFAQ() {
+        const searchInput = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+          const question = item
+            .querySelector(".faq-question")
+            .textContent.toLowerCase();
+          const answer = item
+            .querySelector(".faq-answer")
+            .textContent.toLowerCase();
+
+          if (question.includes(searchInput) || answer.includes(searchInput)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - LuxDraw</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        color: #333;
+        background: #f8f8f8;
+        line-height: 1.6;
+      }
+
+      header {
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem;
+      }
+
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #000;
+      }
+
+      .back-link {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .back-link:hover {
+        color: #000;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      h1 {
+        margin-bottom: 1.5rem;
+        color: #000;
+        font-size: 2.2rem;
+        text-align: center;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-info {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-info h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        border-bottom: 2px solid #ff6b6b;
+        padding-bottom: 0.5rem;
+      }
+
+      .contact-item {
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-label {
+        font-weight: 600;
+        color: #666;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .contact-value {
+        color: #333;
+        margin-top: 0.3rem;
+      }
+
+      .contact-value a {
+        color: #ff6b6b;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .contact-value a:hover {
+        color: #ff5252;
+      }
+
+      .form-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-section h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        border-bottom: 2px solid #ff6b6b;
+        padding-bottom: 0.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #333;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #ff6b6b;
+        box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      .submit-btn {
+        background: #ff6b6b;
+        color: white;
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 6px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s;
+        font-size: 1rem;
+      }
+
+      .submit-btn:hover {
+        background: #ff5252;
+      }
+
+      .form-warning {
+        background: #fff3e0;
+        border-left: 4px solid #ff9800;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: 4px;
+        color: #e65100;
+        font-size: 0.9rem;
+      }
+
+      footer {
+        background: #1a1a1a;
+        color: #999;
+        padding: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 3rem;
+      }
+
+      footer a {
+        color: #999;
+        text-decoration: none;
+        margin: 0 1rem;
+        transition: color 0.3s;
+      }
+
+      footer a:hover {
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .contact-info {
+          padding: 1.5rem;
+        }
+
+        h1 {
+          font-size: 1.6rem;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="logo">LuxDraw</a>
+        <a href="index.html" class="back-link">← Back to Home</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <h1>Contact Us</h1>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <div class="contact-item">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">
+              <a href="mailto:hello@luxdraw.github.io"
+                >hello@luxdraw.github.io</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Support</div>
+            <div class="contact-value">
+              <a href="mailto:support@luxdraw.github.io"
+                >support@luxdraw.github.io</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Legal</div>
+            <div class="contact-value">
+              <a href="mailto:legal@luxdraw.github.io"
+                >legal@luxdraw.github.io</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Response Time</div>
+            <div class="contact-value">We typically reply within 24 hours</div>
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <h2>FAQ</h2>
+          <div class="contact-item">
+            <strong style="color: #ff6b6b"
+              >How do I check my ticket status?</strong
+            >
+            <p style="margin-top: 0.5rem; color: #666">
+              You'll receive an email confirmation immediately after your
+              purchase with all ticket details.
+            </p>
+          </div>
+          <div class="contact-item">
+            <strong style="color: #ff6b6b">When will the draw happen?</strong>
+            <p style="margin-top: 0.5rem; color: #666">
+              Draws are held live once all tickets for a product are sold. Check
+              your email for notifications.
+            </p>
+          </div>
+          <div class="contact-item">
+            <strong style="color: #ff6b6b">How are winners selected?</strong>
+            <p style="margin-top: 0.5rem; color: #666">
+              Winners are selected using a transparent, certified random
+              algorithm. Results are verified independently.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h2>Send us a Message</h2>
+        <div class="form-warning">
+          ⚠️ For urgent support requests, please email support@luxdraw.github.io
+          directly for faster response.
+        </div>
+        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+          <div
+            id="formMessage"
+            style="margin-top: 1rem; font-weight: 600; display: none"
+          ></div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        &copy; 2026 LuxDraw - Luxury at Low Cost |
+        <a href="terms-of-service.html">Terms of Service</a> |
+        <a href="privacy-policy.html">Privacy Policy</a> |
+        <a href="contact.html">Contact</a> | <a href="faq.html">FAQ</a>
+      </p>
+      <p style="margin-top: 1rem; color: #666">
+        Draws are conducted transparently and verified.
+      </p>
+    </footer>
+
+    <script>
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+
+        // In a real application, this would send to a backend service
+        // For now, we'll show a success message
+        const formMessage = document.getElementById("formMessage");
+        formMessage.textContent =
+          "✓ Thank you! Your message has been sent. We'll get back to you soon.";
+        formMessage.style.color = "#2e7d32";
+        formMessage.style.display = "block";
+
+        // Reset form
+        document.getElementById("contactForm").reset();
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          formMessage.style.display = "none";
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
