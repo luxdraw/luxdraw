@@ -3,16 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Win luxury watches, iPhones, and premium tech for just $6-$25. Transparent draws with certified algorithms. Join thousands of winners. Free entry available." />
-    <meta name="keywords" content="luxury raffle, win watches, Rolex, iPhone, tech giveaway, sweepstakes, transparent draws" />
+    <meta
+      name="description"
+      content="Win luxury watches, iPhones, and premium tech for just $6-$25. Transparent draws with certified algorithms. Join thousands of winners. Free entry available."
+    />
+    <meta
+      name="keywords"
+      content="luxury raffle, win watches, Rolex, iPhone, tech giveaway, sweepstakes, transparent draws"
+    />
     <meta name="author" content="LuxDraw" />
     <meta name="theme-color" content="#1a1a1a" />
-    <meta property="og:title" content="LuxDraw - Win Luxury Watches & Premium Tech | Transparent Draws" />
-    <meta property="og:description" content="The luxury you dream of, at a price you can afford. Certified transparent draws with 1000+ winners. Start from just $6." />
+    <meta
+      property="og:title"
+      content="LuxDraw - Win Luxury Watches & Premium Tech | Transparent Draws"
+    />
+    <meta
+      property="og:description"
+      content="The luxury you dream of, at a price you can afford. Certified transparent draws with 1000+ winners. Start from just $6."
+    />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="images/macbookpro14.png" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <title>LuxDraw - Win Luxury Watches & Tech | Transparent Certified Draws</title>
+    <title>
+      LuxDraw - Win Luxury Watches & Tech | Transparent Certified Draws
+    </title>
     <style>
       * {
         margin: 0;
@@ -1307,8 +1321,12 @@
         <h2>⚖️ Age Verification</h2>
         <p>You must be 18 years old or older to participate in these draws.</p>
         <div class="age-buttons">
-          <button class="age-button confirm" onclick="confirmAge()">I'm 18 or Older</button>
-          <button class="age-button deny" onclick="denyAge()">I'm Under 18</button>
+          <button class="age-button confirm" onclick="confirmAge()">
+            I'm 18 or Older
+          </button>
+          <button class="age-button deny" onclick="denyAge()">
+            I'm Under 18
+          </button>
         </div>
       </div>
     </div>
@@ -1357,7 +1375,7 @@
         window.open(
           `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`,
           "_blank",
-          "width=500,height=300"
+          "width=500,height=300",
         );
         trackEvent("social_share", {
           event_category: "growth",
@@ -1369,7 +1387,7 @@
         window.open(
           `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`,
           "_blank",
-          "width=500,height=300"
+          "width=500,height=300",
         );
         trackEvent("social_share", {
           event_category: "growth",
@@ -1381,7 +1399,7 @@
         window.open(
           `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
           "_blank",
-          "width=500,height=300"
+          "width=500,height=300",
         );
         trackEvent("social_share", {
           event_category: "growth",
@@ -1444,7 +1462,7 @@
         const element = document.createElement("a");
         element.setAttribute(
           "href",
-          "data:text/plain;charset=utf-8," + encodeURIComponent(formText)
+          "data:text/plain;charset=utf-8," + encodeURIComponent(formText),
         );
         element.setAttribute("download", "luxdraw-amoe-form.txt");
         element.style.display = "none";
@@ -2090,12 +2108,6 @@
             </div>
 
             <button type="submit" class="checkout-btn">Continue</button>
-            <div class="free-entry-link">
-              <p>
-                Not ready to participate yet?
-                <a href="javascript:openFreeEntry()">Try our free entry method</a>
-              </p>
-            </div>
           </form>
 
           <div id="registrationSuccess" class="form-success">
@@ -2155,6 +2167,14 @@
           >
             Next
           </button>
+          <div class="free-entry-link">
+            <p>
+              Not ready to participate yet?
+              <a href="javascript:skipToBetaProgram()"
+                >Join our Beta Program for free</a
+              >
+            </p>
+          </div>
         </div>
 
         <!-- Step 2: Email & Success -->
@@ -2379,6 +2399,10 @@
           alert("Please select a payment method");
           return;
         }
+        showEmailStep();
+      }
+
+      function skipToBetaProgram() {
         showEmailStep();
       }
 
