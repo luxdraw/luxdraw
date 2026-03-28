@@ -1371,7 +1371,7 @@
       function shareOnTwitter() {
         const text =
           "I just joined LuxDraw! 🎁 Win luxury watches & premium tech for just $6-$25. Fully transparent, certified draws.";
-        const url = encodeURIComponent(window.location.href);
+        const url = encodeURIComponent(getShareUrl());
         window.open(
           `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`,
           "_blank",
@@ -1385,7 +1385,7 @@
 
       function shareOnFacebook() {
         window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`,
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(getShareUrl())}`,
           "_blank",
           "width=500,height=300",
         );
@@ -1397,7 +1397,7 @@
 
       function shareOnLinkedIn() {
         window.open(
-          `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
+          `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(getShareUrl())}`,
           "_blank",
           "width=500,height=300",
         );
@@ -1408,7 +1408,7 @@
       }
 
       function copyReferralLink() {
-        const url = window.location.href;
+        const url = getShareUrl();
         navigator.clipboard.writeText(url).then(() => {
           const btn = document.querySelector(".copy-link-btn");
           const original = btn.textContent;
@@ -1427,6 +1427,11 @@
         if (typeof gtag !== "undefined") {
           gtag("event", eventName, eventData);
         }
+      }
+
+      // Get correct share URL for luxdraw repository
+      function getShareUrl() {
+        return window.location.origin + '/luxdraw';
       }
 
       // Free Entry Modal Functions
