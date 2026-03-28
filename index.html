@@ -3,8 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Win luxury watches, iPhones, and premium tech for just $6-$25. Transparent draws with certified algorithms. Join thousands of winners. Free entry available." />
+    <meta name="keywords" content="luxury raffle, win watches, Rolex, iPhone, tech giveaway, sweepstakes, transparent draws" />
+    <meta name="author" content="LuxDraw" />
+    <meta name="theme-color" content="#1a1a1a" />
+    <meta property="og:title" content="LuxDraw - Win Luxury Watches & Premium Tech | Transparent Draws" />
+    <meta property="og:description" content="The luxury you dream of, at a price you can afford. Certified transparent draws with 1000+ winners. Start from just $6." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/macbookpro14.png" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-    <title>LuxDraw - Luxury at Low Cost</title>
+    <title>LuxDraw - Win Luxury Watches & Tech | Transparent Certified Draws</title>
     <style>
       * {
         margin: 0;
@@ -425,6 +433,21 @@
         color: #000;
       }
 
+      .close-modal {
+        color: #999;
+        float: right;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .close-modal:hover {
+        color: #000;
+      }
+
       .modal h2 {
         margin-bottom: 1.5rem;
         color: #333;
@@ -775,6 +798,155 @@
         background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/img/flags.png");
       }
 
+      /* Age Verification Modal */
+      .age-modal {
+        display: flex;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s;
+      }
+
+      .age-modal-content {
+        background: white;
+        padding: 3rem;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 400px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .age-modal-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .age-modal-content p {
+        color: #666;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+      }
+
+      .age-buttons {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .age-button {
+        flex: 1;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 0.95rem;
+      }
+
+      .age-button.confirm {
+        background: #ff6b6b;
+        color: white;
+      }
+
+      .age-button.confirm:hover {
+        background: #ff5252;
+      }
+
+      .age-button.deny {
+        background: #f0f0f0;
+        color: #333;
+      }
+
+      .age-button.deny:hover {
+        background: #e0e0e0;
+      }
+
+      /* Share & Earn Section */
+      .share-earn {
+        background: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .share-earn-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+
+      .share-earn-subtitle {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .share-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .share-btn {
+        padding: 0.6rem 1.2rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background: white;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s;
+        font-size: 0.9rem;
+      }
+
+      .share-btn:hover {
+        border-color: #ff6b6b;
+        background: rgba(255, 107, 107, 0.05);
+      }
+
+      /* Free Entry Section */
+      .free-entry {
+        background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+        border: 2px dashed #ff6b6b;
+        border-radius: 8px;
+        padding: 2rem;
+        margin: 2rem 0;
+        text-align: center;
+      }
+
+      .free-entry-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #ff6b6b;
+        margin-bottom: 0.5rem;
+      }
+
+      .free-entry-text {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+      }
+
+      .free-entry-address {
+        background: white;
+        padding: 1rem;
+        border-radius: 6px;
+        font-family: monospace;
+        color: #333;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+
       /* Mobile Responsive */
       @media (max-width: 768px) {
         .menu-toggle {
@@ -927,6 +1099,200 @@
           font-size: 0.75rem;
         }
       }
+
+      /* Share & Earn Section */
+      .share-earn {
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        padding: 3rem 2rem;
+        text-align: center;
+        border-top: 2px solid #ff6b6b;
+        border-bottom: 2px solid #ff6b6b;
+        margin: 2rem 0;
+      }
+
+      .share-earn h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        color: #1a1a1a;
+      }
+
+      .share-description {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .share-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      .share-btn {
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        background: #f0f0f0;
+        color: #1a1a1a;
+      }
+
+      .share-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .twitter-share {
+        background: #1da1f2;
+        color: white;
+      }
+
+      .facebook-share {
+        background: #1877f2;
+        color: white;
+      }
+
+      .linkedin-share {
+        background: #0a66c2;
+        color: white;
+      }
+
+      .copy-link-btn {
+        background: #ff6b6b;
+        color: white;
+      }
+
+      .share-note {
+        font-size: 0.9rem;
+        color: #999;
+        margin-top: 1rem;
+      }
+
+      /* Free Entry Link */
+      .free-entry-link {
+        text-align: center;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid #f0f0f0;
+      }
+
+      .free-entry-link p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #666;
+      }
+
+      .free-entry-link a {
+        color: #ff6b6b;
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .free-entry-link a:hover {
+        text-decoration: underline;
+      }
+
+      /* Free Entry Modal */
+      #freeEntryModal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .free-entry-container {
+        background: #f9f9f9;
+        padding: 2rem;
+        border-radius: 12px;
+        margin-top: 1.5rem;
+      }
+
+      .free-entry-container h3 {
+        margin-top: 0;
+        color: #1a1a1a;
+        font-size: 1.3rem;
+      }
+
+      .free-entry-description {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .address-box {
+        background: white;
+        border: 2px dashed #ff6b6b;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+        font-family: monospace;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      .amoe-rules {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 1rem 1.5rem;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 1.5rem 0;
+      }
+
+      .terms-note {
+        font-size: 0.85rem;
+        color: #999;
+        margin-top: 1.5rem;
+      }
+
+      .terms-note a {
+        color: #ff6b6b;
+        text-decoration: none;
+      }
+
+      .terms-note a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .share-buttons {
+          gap: 0.8rem;
+        }
+
+        .share-btn {
+          padding: 0.7rem 1.2rem;
+          font-size: 0.9rem;
+        }
+
+        .share-earn {
+          padding: 2rem 1rem;
+        }
+
+        .free-entry-container {
+          padding: 1.5rem;
+        }
+
+        .address-box {
+          font-size: 0.9rem;
+          padding: 1rem;
+        }
+      }
     </style>
     <!-- International Telephone Input CSS -->
     <link
@@ -935,6 +1301,18 @@
     />
   </head>
   <body>
+    <!-- Age Verification Modal -->
+    <div id="ageModal" class="age-modal">
+      <div class="age-modal-content">
+        <h2>⚖️ Age Verification</h2>
+        <p>You must be 18 years old or older to participate in these draws.</p>
+        <div class="age-buttons">
+          <button class="age-button confirm" onclick="confirmAge()">I'm 18 or Older</button>
+          <button class="age-button deny" onclick="denyAge()">I'm Under 18</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -956,10 +1334,127 @@
 
       gtag("config", "G-FBW6V615MG");
 
-      function trackClick(eventName, label) {
-        gtag("event", eventName, {
+      // Age Verification Handler
+      function confirmAge() {
+        localStorage.setItem("ageVerified", "true");
+        document.getElementById("ageModal").style.display = "none";
+        trackEvent("age_verified", {
+          event_category: "compliance",
+          event_label: "User confirmed 18+",
+        });
+      }
+
+      function denyAge() {
+        alert("You must be 18 years or older to access this site.");
+        window.location.href = "https://www.google.com";
+      }
+
+      // Share Button Functions
+      function shareOnTwitter() {
+        const text =
+          "I just joined LuxDraw! 🎁 Win luxury watches & premium tech for just $6-$25. Fully transparent, certified draws.";
+        const url = encodeURIComponent(window.location.href);
+        window.open(
+          `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`,
+          "_blank",
+          "width=500,height=300"
+        );
+        trackEvent("social_share", {
+          event_category: "growth",
+          event_label: "twitter",
+        });
+      }
+
+      function shareOnFacebook() {
+        window.open(
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`,
+          "_blank",
+          "width=500,height=300"
+        );
+        trackEvent("social_share", {
+          event_category: "growth",
+          event_label: "facebook",
+        });
+      }
+
+      function shareOnLinkedIn() {
+        window.open(
+          `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`,
+          "_blank",
+          "width=500,height=300"
+        );
+        trackEvent("social_share", {
+          event_category: "growth",
+          event_label: "linkedin",
+        });
+      }
+
+      function copyReferralLink() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+          const btn = document.querySelector(".copy-link-btn");
+          const original = btn.textContent;
+          btn.textContent = "✓ Copied!";
+          setTimeout(() => {
+            btn.textContent = original;
+          }, 2000);
+          trackEvent("referral_link_copied", {
+            event_category: "growth",
+            event_label: "clipboard",
+          });
+        });
+      }
+
+      function trackEvent(eventName, eventData) {
+        if (typeof gtag !== "undefined") {
+          gtag("event", eventName, eventData);
+        }
+      }
+
+      // Free Entry Modal Functions
+      function openFreeEntry() {
+        document.getElementById("freeEntryModal").style.display = "flex";
+        trackEvent("free_entry_opened", {
           event_category: "engagement",
-          event_label: label,
+          event_label: "AMOE modal opened",
+        });
+      }
+
+      function closeFreeEntry() {
+        document.getElementById("freeEntryModal").style.display = "none";
+      }
+
+      function downloadAMOEForm() {
+        // Create AMOE form content
+        const formText =
+          `LuxDraw Alternative Method of Entry (AMOE) Form\n\n` +
+          `Instructions: Print this form, fill in your details, and mail to:\n\n` +
+          `LuxDraw AMOE\nPO Box 12345\nLondon, UK\nLX1 2DR\n\n` +
+          `---\n` +
+          `Name: ____________________________\n` +
+          `Address: ____________________________\n` +
+          `City: ________________ Postal Code: ______\n` +
+          `Phone: ____________________________\n` +
+          `Email: ____________________________\n` +
+          `Age: ____ (Must be 18+)\n` +
+          `Prize Entries (list prizes you wish to enter): ____________________________\n\n` +
+          `I confirm I am 18 years or older and agree to the terms of service.\n` +
+          `Signature: ____________________________\nDate: ____________________________`;
+
+        const element = document.createElement("a");
+        element.setAttribute(
+          "href",
+          "data:text/plain;charset=utf-8," + encodeURIComponent(formText)
+        );
+        element.setAttribute("download", "luxdraw-amoe-form.txt");
+        element.style.display = "none";
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+
+        trackEvent("amoe_form_downloaded", {
+          event_category: "compliance",
+          event_label: "AMOE form downloaded",
         });
       }
 
@@ -1036,6 +1531,32 @@
         </div>
       </div>
     </div>
+
+    <!-- Share & Earn Section -->
+    <section class="share-earn">
+      <h2>Share & Earn Extra Tickets</h2>
+      <p class="share-description">
+        Share your unique link and earn 1 bonus ticket for every friend who
+        joins!
+      </p>
+      <div class="share-buttons">
+        <button class="share-btn twitter-share" onclick="shareOnTwitter()">
+          𝕏 Twitter
+        </button>
+        <button class="share-btn facebook-share" onclick="shareOnFacebook()">
+          f Facebook
+        </button>
+        <button class="share-btn linkedin-share" onclick="shareOnLinkedIn()">
+          in LinkedIn
+        </button>
+        <button class="copy-link-btn share-btn" onclick="copyReferralLink()">
+          🔗 Copy Link
+        </button>
+      </div>
+      <p class="share-note">
+        📊 Track your referrals in your dashboard (coming soon)
+      </p>
+    </section>
 
     <!-- How It Works -->
     <section id="how" class="how-it-works">
@@ -1569,6 +2090,12 @@
             </div>
 
             <button type="submit" class="checkout-btn">Continue</button>
+            <div class="free-entry-link">
+              <p>
+                Not ready to participate yet?
+                <a href="javascript:openFreeEntry()">Try our free entry method</a>
+              </p>
+            </div>
           </form>
 
           <div id="registrationSuccess" class="form-success">
@@ -1660,6 +2187,52 @@
             <p style="margin-top: 0.5rem; font-size: 0.95rem">
               You will be contacted by email with more information and exclusive
               beta access.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Free Entry Modal (AMOE) -->
+    <div id="freeEntryModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeFreeEntry()">×</span>
+        <div class="modal-steps">
+          <div class="modal-step active-step">
+            <h2>Participate for Free</h2>
+            <p class="modal-subtitle">
+              Not ready to play yet? Try our Alternative Method of Entry (AMOE)
+            </p>
+
+            <div class="free-entry-container">
+              <h3>📮 Send a Postcard</h3>
+              <p class="free-entry-description">
+                You can enter any of our draws completely free by sending a
+                postcard to our AMOE address:
+              </p>
+
+              <div class="address-box">
+                <strong>LuxDraw AMOE</strong><br />
+                PO Box 12345<br />
+                London, UK<br />
+                LX1 2DR
+              </div>
+
+              <p class="amoe-rules">
+                <strong>Rules:</strong> Include one entry per postcard. Each
+                postcard equals one ticket entry. Postmark must be within 30
+                days of draw date. Download official entry form.
+              </p>
+
+              <button class="checkout-btn" onclick="downloadAMOEForm()">
+                Download Entry Form
+              </button>
+            </div>
+
+            <p class="terms-note">
+              By participating, you agree to our
+              <a href="privacy-policy.html">Privacy Policy</a> and
+              <a href="terms-of-service.html">Terms of Service</a>
             </p>
           </div>
         </div>
@@ -1995,6 +2568,13 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         console.log("DOM Content Loaded");
+
+        // Age Verification Check
+        if (!localStorage.getItem("ageVerified")) {
+          document.getElementById("ageModal").style.display = "flex";
+        } else {
+          document.getElementById("ageModal").style.display = "none";
+        }
 
         // Initialize International Telephone Input
         const phoneInputField = document.querySelector("#userPhone");
